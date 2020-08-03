@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css?family=Assistant|Cinzel:700|Felipa|Great+Vibes');
+
+/* -- Elements -- */
+:root {
+    /* Resize default font of 16px to 10px - To make rem units easier */
+    font-size: 62.5%;
+
+    /* variables */
+    --main-color:  #FFF2F1;
+    --secondary-color: #A69658;
+    --transition-color: #404E4F;
+}
+
+body {
+    /* Set default font size for the entire document back to 16px */
+    font-size: 1.6rem;
+    font-family: 'Assistant', sans-serif;
+    /* Remove margin so that header and footer background take up the whole space */
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header div {
+    text-align: center;
+}
+
+h2 {
+    color: white;
+    margin: 0;
+}
+
+h4 {
+    margin: 0;
+}
+
+p {
+    margin-top: 0;
+}
+
+ul {
+    text-align: center;
+    padding: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+}
+
+li {
+    margin-bottom: 2rem;
+}
+
+dl {
+    margin: 0;
+    padding: 0;
+}
+
+dt {
+    font-size: 1.8rem;
+    font-weight: bolder;
+    text-decoration: underline;
+    display: block;
+    margin: 0;
+}
+
+dd {
+    display: block;
+    margin: 0;
+}
+
+footer {
+    background-color: #404E4F;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer h2 {
+    text-align: center;
+    font-size: calc(1.6rem + 0.25vw);
+}
+
+footer h2 a {
+    color: #8DC9E7;
+}
+
+/* -- Ids -- */
+#title {
+    font-family: 'Cinzel', sans-serif;
+    font-size: calc(1.6rem + 3vw);
+    animation-name: ajah-color-transition;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes ajah-color-transition {
+    0% { color: #1D3354; }
+    17% { color: #466D22; }
+    34% { color: #F7EF81; }
+    51% { color: #902923; }
+    68% { color: #F2F3F7; }
+    85% { color: #417276; }
+    100% { color: #4A442D; }
+}
+
+#book-quote {
+    font-family: 'Great Vibes', sans-serif;
+    font-size: 3.2rem;
+    font-size: calc(1.2rem + 2vmin);
+    width: calc(3rem + 50vw);
+}
+
+#img-div {
+    width: calc(20rem + 20vw);
+}
+
+#image {
+    display: block;
+    width: calc(20rem + 20vw);
+    max-width: 100%;
+    margin-right: 3rem;
+    height: auto;
+}
+
+#img-caption {
+    font-size: 1rem;
+    text-align: center;
+    color: transparent;
+}
+
+#img-div:hover #img-caption {
+    color: black;
+}
+
+/* -- Classes -- */
+
+/* Layout of book content */
+.book-list {
+    width: 80vw;
+    margin-top: 5rem;
+    margin-left:  auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.book {
+    display: inline-block;
+    width: 48%;
+    margin-right: 2rem;
+}
+
+.book-image {
+    float: left;
+    width: auto;
+    height: 36rem;
+    margin-right: 1rem;
+}
+
+.book-content {
+    text-align: justify;
+}
+
+.book-title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.secondary-bg-color {
+    background-color: var(--secondary-color);
+}
+
+.authors {
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5rem;
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    justify-items: center;
+}
+
+.authors #robert-jordan {
+    grid-column: 1 / 2;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+    "image info"
+    "bio bio";
+    column-gap: 1rem;
+    row-gap: 1rem;
+}
+
+#robert-jordan #jordan-image {
+    grid-area: image;
+}
+
+#robert-jordan .author-info {
+    grid-area: info;
+}
+
+#robert-jordan .author-bio {
+    grid-area: bio;
+}
+
+.authors #brandon-sanderson {
+    grid-column: 2 / 3;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+    "image info"
+    "bio bio";
+    column-gap: 1rem;
+    row-gap: 1rem;
+}
+
+#brandon-sanderson .author-image {
+    grid-area: image;
+}
+
+#brandon-sanderson .author-info {
+    grid-area: info;
+}
+
+#brandon-sanderson .author-bio {
+    grid-area: bio;
+}
+
+.author-image {
+    width: 35rem;
+    height: auto;
+}
+
+.transition {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    background-color: #404E4F;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1250px) {
+    header {
+        flex-direction: column;
+    }
+
+    #book-quote {
+        margin-bottom: 0;
+    }
+
+    #img-div {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .book-list {
+        display: block;
+        width: 90vw;
+    }
+
+    .book {
+        width: 90vw;
+    }
+    
+    .authors {
+        display: block;
+    }
+
+    #brandon-sanderson {
+        margin-top: 1rem;
+    }
+}

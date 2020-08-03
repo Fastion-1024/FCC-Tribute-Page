@@ -1,97 +1,92 @@
-@import url('https://fonts.googleapis.com/css?family=Assistant|Cinzel:700|Felipa|Great+Vibes');
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700;800&display=swap');
 
-/* -- Elements -- */
 :root {
-    /* Resize default font of 16px to 10px - To make rem units easier */
-    font-size: 62.5%;
+    /* Variables */
+    --font-main: 'Assistant', sans-serif;
+    --font-header: 'Cinzel', sans-serif;
+    --font-quote: 'Great Vibes', sans-serif;
 
-    /* variables */
-    --main-color:  #FFF2F1;
-    --secondary-color: #A69658;
-    --transition-color: #404E4F;
+    --color-main: #B5B392;
+    --color-secondary: #404E4F;
+    --color-background: #f2f3ef;
 }
 
 body {
-    /* Set default font size for the entire document back to 16px */
-    font-size: 1.6rem;
-    font-family: 'Assistant', sans-serif;
-    /* Remove margin so that header and footer background take up the whole space */
     margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
 }
 
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+main {
+    background-color: var(--color-background);
 }
 
-header div {
-    text-align: center;
+/* ##########################
+            General
+############################*/
+h2, h3, h4, h5, h6 {
+    font-family: var(--font-header);
 }
 
 h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
     color: white;
-    margin: 0;
+}
+
+h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
 h4 {
-    margin: 0;
+    font-size: 1rem;
+    margin: 1.5em 0 0.5em 0;
 }
 
+
 p {
-    margin-top: 0;
+    margin: 0;
+    margin-bottom: 1em;
+}
+
+a {
+    color: #01496F;
 }
 
 ul {
-    text-align: center;
-    padding: 0;
-    margin-bottom: 0;
     list-style-type: none;
-}
-
-li {
-    margin-bottom: 2rem;
-}
-
-dl {
-    margin: 0;
     padding: 0;
 }
 
-dt {
-    font-size: 1.8rem;
-    font-weight: bolder;
-    text-decoration: underline;
-    display: block;
-    margin: 0;
+.secondary-bg-color {
+    background-color: var(--color-main)
 }
 
-dd {
-    display: block;
-    margin: 0;
-}
 
-footer {
-    background-color: #404E4F;
-    height: 5rem;
+/* ##########################
+        Header Styling
+############################*/
+
+header {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
+}   
 
-footer h2 {
+header .header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    font-size: calc(1.6rem + 0.25vw);
 }
 
-footer h2 a {
-    color: #8DC9E7;
-}
-
-/* -- Ids -- */
-#title {
-    font-family: 'Cinzel', sans-serif;
-    font-size: calc(1.6rem + 3vw);
+.header-text h1 {
+    font-size: 2.4rem;
+    font-family: var(--font-header);
+    font-weight: 800;
     animation-name: ajah-color-transition;
     animation-duration: 30s;
     animation-iteration-count: infinite;
@@ -99,182 +94,256 @@ footer h2 a {
 }
 @keyframes ajah-color-transition {
     0% { color: #1D3354; }
-    17% { color: #466D22; }
+    17% { color: #214F01; }
     34% { color: #F7EF81; }
-    51% { color: #902923; }
-    68% { color: #F2F3F7; }
-    85% { color: #417276; }
+    51% { color: #8E0707; }
+    68% { color: #FFFFFF; }
+    85% { color: #2a3233; }
     100% { color: #4A442D; }
 }
 
-#book-quote {
-    font-family: 'Great Vibes', sans-serif;
-    font-size: 3.2rem;
-    font-size: calc(1.2rem + 2vmin);
-    width: calc(3rem + 50vw);
+.header-text p {
+    font-size: 1.2rem;
+    font-family: var(--font-quote);
 }
 
 #img-div {
-    width: calc(20rem + 20vw);
+    margin: 0em 0em 1.5em 0em;
+}
+
+#img-div, #image {
+    width: 25vw;
+    min-width: 15em;
+    max-width: 20em;
 }
 
 #image {
     display: block;
-    width: calc(20rem + 20vw);
-    max-width: 100%;
-    margin-right: 3rem;
-    height: auto;
 }
 
 #img-caption {
-    font-size: 1rem;
     text-align: center;
-    color: transparent;
+    font-size: 0.75rem;
+    display: none;
 }
 
 #img-div:hover #img-caption {
-    color: black;
+    display: block;
 }
 
-/* -- Classes -- */
 
-/* Layout of book content */
-.book-list {
-    width: 80vw;
-    margin-top: 5rem;
-    margin-left:  auto;
-    margin-right: auto;
-    display: flex;
-    flex-wrap: wrap;
+/* ##########################
+        Books Styling
+############################*/
+
+.transition {
+    text-align: center;
+    padding: 0.4em 0;
+    background-color: var(--color-secondary);
+}
+.transition h2 {
+    margin: 0;
 }
 
 .book {
-    display: inline-block;
-    width: 48%;
-    margin-right: 2rem;
+    display: grid;
+    justify-items: center;
+    grid-template-areas: 'book-title' 'book-cover' 'book-info' 'book-synopsis';
 }
 
-.book-image {
-    float: left;
-    width: auto;
-    height: 36rem;
-    margin-right: 1rem;
+.book h3 {
+    grid-area: book-title;
 }
 
-.book-content {
+.book .book-info {
+    grid-area: book-info;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    text-align: center;
+}
+
+.book .book-synopsis {
+    grid-area: book-synopsis;
+    margin: 0 1em;
     text-align: justify;
 }
 
-.book-title {
-    margin-top: 0;
-    margin-bottom: 1rem;
+.book img {
+    width: 50vw;
+    min-width: 10em;
+    max-width: 15em;
+    grid-area: book-cover;
 }
 
-.secondary-bg-color {
-    background-color: var(--secondary-color);
-}
+/* ##########################
+        Authors Styling
+############################*/
 
-.authors {
-    margin-top: 5rem;
+#robert-jordan, #brandon-sanderson {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 5rem;
-    width: 90vw;
-    margin-left: auto;
-    margin-right: auto;
+    grid-template-areas: 'author-image' 'author-info' 'author-bio';
     justify-items: center;
+    row-gap: 1em;
 }
 
-.authors #robert-jordan {
-    grid-column: 1 / 2;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto 1fr;
-    grid-template-areas: 
-    "image info"
-    "bio bio";
-    column-gap: 1rem;
-    row-gap: 1rem;
+.authors .author-image {
+    width: 70vw;
+    min-width: 10em;
+    max-width: 20em;
+    grid-area: author-image;
+    margin-top: 2.5em;
 }
 
-#robert-jordan #jordan-image {
-    grid-area: image;
+.authors .author-info {
+    grid-area: author-info;
 }
 
-#robert-jordan .author-info {
-    grid-area: info;
+.authors .author-bio {
+    grid-area: author-bio;
+    margin: 0 1em;
+    text-align: justify;
 }
 
-#robert-jordan .author-bio {
-    grid-area: bio;
+.authors dl {
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
-.authors #brandon-sanderson {
-    grid-column: 2 / 3;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto 1fr;
-    grid-template-areas: 
-    "image info"
-    "bio bio";
-    column-gap: 1rem;
-    row-gap: 1rem;
+.authors dt {
+    font-weight: 700;
+    text-decoration: underline;
+    display: block;
+    margin: 0;
 }
 
-#brandon-sanderson .author-image {
-    grid-area: image;
+.authors dd {
+    display: block;
+    margin: 0;
+    margin-bottom: 0.5em;
 }
 
-#brandon-sanderson .author-info {
-    grid-area: info;
+/* ##########################
+        Footer Styling
+############################*/
+
+footer {
+    background-color: var(--color-secondary);
+    padding: 1em 0;
 }
 
-#brandon-sanderson .author-bio {
-    grid-area: bio;
+footer h2 {
+    font-size: 1rem;
+    margin: 0 1em;
+    text-align: center;
 }
 
-.author-image {
-    width: 35rem;
-    height: auto;
+footer a {
+    color: #8DC9E7;
 }
 
-.transition {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 5rem;
-    background-color: #404E4F;
-}
+/* ##########################
+        Media Queries
+############################*/
 
-/* Media Queries */
-@media screen and (max-width: 1250px) {
-    header {
-        flex-direction: column;
+@media only screen and (min-width: 600px) {
+
+    /* Layout changes for authors section */
+    #robert-jordan, #brandon-sanderson {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto 1fr;
+        grid-template-areas: 'author-image author-info' 'author-bio author-bio';
+        margin: 2em 1em 0em 1em;
     }
 
-    #book-quote {
-        margin-bottom: 0;
+    .authors .author-image {
+        margin: 0;
+        margin-left: 1em;
     }
 
-    #img-div {
-        margin-top: 0;
-        margin-bottom: 0;
+    .authors dl {
+        text-align: left;
+        justify-self: left;
+        margin-left: 1em;
     }
 
-    .book-list {
-        display: block;
+    /* Layout changes for header */
+    header .header-text {
         width: 90vw;
+    }
+
+}
+
+@media only screen and (min-width: 1000px) {
+    /* Layout changes for authors section */
+    .authors {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 'author-jordan author-sanderson';
+    }
+
+    #robert-jordan {
+        grid-area: author-jordan;
+    }
+    
+    #brandon-sanderson {
+        grid-area: author-sanderson;
+    }
+
+
+    /* Layout changes for books section */
+    .book {
+        display: inline-block;
+    }
+
+    .book h3 {
+        margin-top: 0;
+    }
+
+    .book img {
+        float: left;
+        margin: 0em 1em 2em 1em;
+    }
+
+    .book .book-info {
+        display: inline;
+        text-align: left;
+    }    
+
+    /* Layout changes for header */
+    header .header-text {
+        width: 80vw;
+    }
+}
+
+@media only screen and (min-width: 1250px) {
+    /* Layout changes for authors section */
+    .authors .author-image {
+        max-width: 25em;
+    }
+
+    /* Layout changes for books section */
+    .book-list {
+        display: flex;
+        flex-wrap: wrap;
     }
 
     .book {
-        width: 90vw;
-    }
-    
-    .authors {
-        display: block;
+        width: 50%;
     }
 
-    #brandon-sanderson {
-        margin-top: 1rem;
+    /* Layout changes for header */
+    header {
+        flex-direction: row;
+    }
+
+    header .header-text {
+        width: 50vw;
+    }
+
+    .header-text h1 {
+        font-size: 3rem;
     }
 }
+
